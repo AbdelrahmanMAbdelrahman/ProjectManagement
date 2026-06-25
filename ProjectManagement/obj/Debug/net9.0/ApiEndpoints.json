@@ -1,0 +1,87 @@
+[
+  {
+    "ContainingType": "ProjectManagement.Controllers.AuthController",
+    "Method": "AssignRoleAsync",
+    "RelativePath": "Api/Auth/AssignRole",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "ProjectManagementApplication.DTOs.Auth.UserRoleReq",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectManagement.Controllers.AuthController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "Api/Auth/Confirm",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectManagement.Controllers.AuthController",
+    "Method": "CreateRole",
+    "RelativePath": "Api/Auth/CreateRole",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectManagement.Controllers.AuthController",
+    "Method": "SignIn",
+    "RelativePath": "Api/Auth/SignIn",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "ProjectManagementApplication.DTOs.Auth.LoginReq",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectManagement.Controllers.AuthController",
+    "Method": "SignUp",
+    "RelativePath": "Api/Auth/SignUp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "ProjectManagementApplication.Interfaces.RegisterReq",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

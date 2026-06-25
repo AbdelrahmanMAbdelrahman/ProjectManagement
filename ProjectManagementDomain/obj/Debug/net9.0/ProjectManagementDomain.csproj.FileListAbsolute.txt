@@ -1,0 +1,12 @@
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\bin\Debug\net9.0\ProjectManagementDomain.deps.json
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\bin\Debug\net9.0\ProjectManagementDomain.dll
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\bin\Debug\net9.0\ProjectManagementDomain.pdb
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.csproj.AssemblyReference.cache
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.AssemblyInfoInputs.cache
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.AssemblyInfo.cs
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.csproj.CoreCompileInputs.cache
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.dll
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\refint\ProjectManagementDomain.dll
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.pdb
+C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ref\ProjectManagementDomain.dll
