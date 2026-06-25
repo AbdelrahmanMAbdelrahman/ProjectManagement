@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ProjectEvaluation
+/.vs/ProjectManagement
+/ProjectManagement/obj/Debug/net9.0/ProjectManagement.AssemblyInfoInputs.cache
+/ProjectManagement/obj/Debug/net9.0/ProjectManagement.AssemblyInfo.cs
