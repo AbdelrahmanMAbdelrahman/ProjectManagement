@@ -9,8 +9,8 @@ namespace ProjectManagementApplication.Common.Results
 {
     public class Result
     {
-        public bool Success { get; set; }
-        public bool Failiar => !Success;
+        public bool IsSuccess { get; set; }
+        public bool IsFailiar => !IsSuccess;
         public Error error { get; set; } = default!;
         public Result(bool suc, Error err)
         {
@@ -18,13 +18,13 @@ namespace ProjectManagementApplication.Common.Results
             {
                 throw new InvalidOperationException();
             }
-            Success = suc;
+            IsSuccess = suc;
             error = err;
         }
-        public static Result IsSuccess() => new Result(true, Error.None);
-        public static Result IsFail(Error err) => new Result(false, err);
-        public static Result<T> IsSuccess<T>(T val) => new(true, Error.None, val);
-        public static Result<T> IsFail<T>(Error err) => new(false, err, default!);
+        public static Result Success() => new Result(true, Error.None);
+        public static Result Fail(Error err) => new Result(false, err);
+        public static Result<T> Success<T>(T val) => new(true, Error.None, val);
+        public static Result<T> Fail<T>(Error err) => new(false, err, default!);
 
     }
 }

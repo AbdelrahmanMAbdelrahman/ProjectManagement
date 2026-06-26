@@ -13,6 +13,6 @@ namespace ProjectManagementApplication.Common.Results
         {
             _value = val;
         }
-        public T Value => Success ? _value : throw new InvalidOperationException();
+        public T Value => IsSuccess ? _value : throw new InvalidOperationException();
     }
 }

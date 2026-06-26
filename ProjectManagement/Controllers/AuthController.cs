@@ -8,25 +8,25 @@
         public async Task<IActionResult> SignUp(RegisterReq req,CancellationToken ct)
         {
            Result result=await authService.SignUp(req, ct);
-            return result.Success ? Ok("Check your email to confirm email") : result.Problem();
+            return result.IsSuccess ? Ok("Check your email to confirm email") : result.Problem();
         }
         [HttpPost("SignIn")]
         public async Task<IActionResult> SignIn(LoginReq req, CancellationToken ct) { 
         Result<LoginRes> result =await authService.SignIn(req, ct);
-            return result.Success? Ok(result.Value) : result.Problem();
+            return result.IsSuccess? Ok(result.Value) : result.Problem();
         }
         
         [HttpGet("Confirm")]
         public async Task<IActionResult> ConfirmEmail([FromQuery] EmailConfirmReq req, CancellationToken ct) {
             Result result = await authService.ConfirmEmail(req,ct);
-            return result.Success?  Ok("Thank you for confirm your email"):result.Problem();  
+            return result.IsSuccess?  Ok("Thank you for confirm your email"):result.Problem();  
         }
         [Authorize(Roles ="Admin")]
         [HttpPut("AssignRole")]
         public async Task<IActionResult> AssignRoleAsync(UserRoleReq req, CancellationToken ct)
         {
             var res = await authService.AssignRoleAsync(req, ct);
-            return res.Success ?
+            return res.IsSuccess ?
                 NoContent() :
                 res.Problem();
         }
@@ -35,7 +35,7 @@
         public async Task<IActionResult> CreateRole (string role,CancellationToken ct)
         {
             Result<RoleRes> res = await authService.AddRole(role, ct);
-            return res.Success ?
+            return res.IsSuccess ?
                 Ok(res.Value):
                 res.Problem();
         }

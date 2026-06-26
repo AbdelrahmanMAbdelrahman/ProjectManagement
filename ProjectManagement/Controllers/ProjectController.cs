@@ -9,7 +9,7 @@ namespace ProjectManagement.Controllers
         public async Task<IActionResult> CreateProject([FromBody] ProjectReq req,CancellationToken ct)
         {
             Result<ProjectRes>result=await projectService.CreateProjectAsync(req, ct);
-            return result.Success?
+            return result.IsSuccess?
                 CreatedAtAction(nameof(GetProjectById),new{id=result.Value.id},result.Value):
                 result.Problem();
         }
@@ -17,7 +17,7 @@ namespace ProjectManagement.Controllers
         public async Task<IActionResult> GetProjectById(Guid id,CancellationToken ct)
         {
             Result<ProjectRes> result = await projectService.GetProjectByIdAsync(id, ct);
-            return result.Success?
+            return result.IsSuccess?
                 Ok(result.Value):
                 result.Problem();
         }
@@ -25,7 +25,7 @@ namespace ProjectManagement.Controllers
         public async Task<IActionResult> GetAllProjects(CancellationToken ct)
         {
             Result<List<ProjectRes>>result=await projectService.GetAllProjectsAsync(ct);
-            return result.Success ?
+            return result.IsSuccess ?
                 Ok(result.Value) :
                 result.Problem();
         }
@@ -33,14 +33,14 @@ namespace ProjectManagement.Controllers
         public async Task<IActionResult> AmendProject(Guid id, [FromBody] ProjectReq req,CancellationToken ct)
         {
             Result result = await projectService.UpdateProjectAsync(id,req,ct);
-            return result.Success ?
+            return result.IsSuccess ?
                 NoContent() :
                 result.Problem();
         }
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteProject(Guid id, CancellationToken ct) { 
         Result result =await projectService.DeleteProjectAsync(id, ct);
-            return result.Success?
+            return result.IsSuccess?
                 NoContent():
                 result.Problem();
         }

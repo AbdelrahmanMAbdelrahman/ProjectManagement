@@ -7,7 +7,7 @@ namespace ProjectManagement.Common.Problem
     {
         public static ObjectResult Problem(this Result res)
         {
-            if (res.Success)
+            if (res.IsSuccess)
             {
                 throw new InvalidOperationException();
             }

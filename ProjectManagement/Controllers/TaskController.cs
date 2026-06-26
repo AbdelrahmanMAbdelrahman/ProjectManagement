@@ -15,31 +15,24 @@ namespace TaskManagement.Controllers
         public async Task<IActionResult> CreateTask([FromBody] TaskReq req, CancellationToken ct)
         {
             Result<TaskRes> result = await taskService.CreateTaskAsync(req, ct);
-            return result.Success ?
-                CreatedAtAction(nameof(GetTaskById), new { id = result.Value.id }, result.Value) :
+            return result.IsSuccess ?
+                CreatedAtAction(nameof(GetTaskByProjectId), new { projectId = result.Value.projectId }, result.Value) :
                 result.Problem();
         }
         [HttpGet("{id:guid}")]
-        public async Task<IActionResult> GetTaskById(Guid id, CancellationToken ct)
+        public async Task<IActionResult> GetTaskByProjectId(Guid projectId, CancellationToken ct)
         {
-            Result<TaskRes> result = await taskService.GetTasksByProjectAsync(id, ct);
-            return result.Success ?
+            Result<List<TaskRes>> result = await taskService.GetTasksByProjectAsync(projectId, ct);
+            return result.IsSuccess ?
                 Ok(result.Value) :
                 result.Problem();
         }
-        //[HttpGet("")]
-        //public async Task<IActionResult> GetAllTasks(CancellationToken ct)
-        //{
-        //    Result<List<TaskRes>> result = await taskService.get(ct);
-        //    return result.Success ?
-        //        Ok(result.Value) :
-        //        result.Problem();
-        //}
+        
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> AmendTask(Guid id, [FromBody] UpdateTaskReq req, CancellationToken ct)
         {
             Result result = await taskService.UpdateTaskStatusAsync( req, ct);
-            return result.Success ?
+            return result.IsSuccess ?
                 NoContent() :
                 result.Problem();
         }
@@ -47,7 +40,7 @@ namespace TaskManagement.Controllers
         public async Task<IActionResult> DeleteProject(Guid id, CancellationToken ct)
         {
             Result result = await taskService.DeleteTaskAsync(id, ct);
-            return result.Success ?
+            return result.IsSuccess ?
                 NoContent() :
                 result.Problem();
         }

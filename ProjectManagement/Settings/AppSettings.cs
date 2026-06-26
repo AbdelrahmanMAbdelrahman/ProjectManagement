@@ -1,25 +1,33 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder.Extensions;
+﻿
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Mapster;
+using MapsterMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using ProjectManagementApplication.Interfaces;
+using ProjectManagementApplication.Common.Exceptions;
+using ProjectManagementApplication.Mapping;
 using ProjectManagementApplication.Services;
+using ProjectManagementApplication.Validation;
 using ProjectManagementDomain.Models.Auth;
 using ProjectManagementDomain.Models.Options;
 using ProjectManagmentInfrasturcture;
 using System.Text;
-using System.Threading.Tasks.Sources;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ProjectManagement.Settings
 {
     public static class AppSettings
     {
         public static IServiceCollection PrepareAppServices(
-            this IServiceCollection service, ConfigurationManager config) {
+            this IServiceCollection service, ConfigurationManager config)
+        {
+            service.PrepareExceptionHandler();
             service.PrepareDatabaseConnection(config);
             service.PrepareDependencyInjection();
+            service.PrepareMapping();
+            service.PrepareValidation();
             service.PrepareCors();
             service.PrepareAuth(config);
             return service;
@@ -27,8 +35,8 @@ namespace ProjectManagement.Settings
         public static IServiceCollection PrepareDatabaseConnection(
             this IServiceCollection service, ConfigurationManager config)
         {
-              string? ConnectionString = config.GetConnectionString("DefaultConnection");
-            service.AddDbContext<AppDbContext>(options=>options.UseSqlServer(ConnectionString));
+            string? ConnectionString = config.GetConnectionString("DefaultConnection");
+            service.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
             return service;
         }
         public static IServiceCollection PrepareCors(this IServiceCollection service)
@@ -51,9 +59,25 @@ namespace ProjectManagement.Settings
         {
             service.AddScoped<IAuth, AuthService>();
             service.AddScoped<IProject, ProjectService>();
-            service.AddScoped<ITask,TaskService>();
+            service.AddScoped<ITask, TaskService>();
             return service;
         }
+        public static IServiceCollection PrepareValidation(this IServiceCollection service)
+        {
+            service
+                .AddFluentValidationAutoValidation();
+            service.AddValidatorsFromAssembly(typeof(ProjectValidator).Assembly);
+            return service;
+        }
+        public static IServiceCollection PrepareMapping(this IServiceCollection service)
+        {
+            service.AddMapster();
+            TypeAdapterConfig config = TypeAdapterConfig.GlobalSettings;
+            config.Scan(typeof(ProjectMap).Assembly);
+            service.AddSingleton<IMapper>(new Mapper(config));
+            return service;
+        }
+
         public static IServiceCollection PrepareAuth(this IServiceCollection service, IConfiguration config)
         {
             JwtOptions options = config.GetSection(JwtOptions.Section).Get<JwtOptions>()!;
@@ -94,6 +118,13 @@ namespace ProjectManagement.Settings
             //});
             return service;
 
+        }
+
+        public static IServiceCollection PrepareExceptionHandler(this IServiceCollection services)
+        {
+            services.AddExceptionHandler<GlobalExceptionHandler>();
+            services.AddProblemDetails();
+            return services;
         }
     }
 }

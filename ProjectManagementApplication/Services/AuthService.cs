@@ -36,14 +36,14 @@ namespace ProjectManagementApplication.Services
             public  async Task<Result> ConfirmEmail(EmailConfirmReq req,CancellationToken ct)
             {
                 AppUser? user = await userManager.FindByIdAsync(req.id);
-                if (user is null) return Result.IsFail(AuthError.NotFound);
+                if (user is null) return Result.Fail(AuthError.NotFound);
                 bool IsEmailConfirmed = await userManager.IsEmailConfirmedAsync(user);
-                if (IsEmailConfirmed) return Result.IsFail(AuthError.EmailConfirmConflict);
+                if (IsEmailConfirmed) return Result.Fail(AuthError.EmailConfirmConflict);
                 string code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(req.code));
                 var result = await userManager.ConfirmEmailAsync(user, code);
                 return result.Succeeded ?
-                    Result.IsSuccess() :
-                    Result.IsFail(AuthError.BadRequest);
+                    Result.Success() :
+                    Result.Fail(AuthError.BadRequest);
             }
 
               string GetRefreshToken(CancellationToken ct)
@@ -90,10 +90,10 @@ namespace ProjectManagementApplication.Services
             public async Task<Result<LoginRes>> SignIn(LoginReq req, CancellationToken ct)
             {
                 AppUser? appUser = await userManager.FindByEmailAsync(req.email);
-                if (appUser is null) return Result.IsFail<LoginRes>(AuthError.NotFound);
-                if (!appUser.EmailConfirmed) return Result.IsFail<LoginRes>(AuthError.EmailNotConfirmed);
+                if (appUser is null) return Result.Fail<LoginRes>(AuthError.NotFound);
+                if (!appUser.EmailConfirmed) return Result.Fail<LoginRes>(AuthError.EmailNotConfirmed);
                 bool IsPassValid = await userManager.CheckPasswordAsync(appUser, req.password);
-                if (!IsPassValid) { return Result.IsFail<LoginRes>(AuthError.InCorrectUserNameOrPassword); }
+                if (!IsPassValid) { return Result.Fail<LoginRes>(AuthError.InCorrectUserNameOrPassword); }
                 var roles = await userManager.GetRolesAsync(appUser);
                 string token = await GetToken(appUser, ct);
                 if (appUser.RefreshTokens.Any(rf => rf.IsActive))
@@ -108,7 +108,7 @@ namespace ProjectManagementApplication.Services
                         roles.ToList(),
                         refreshToken.Token
                         );
-                    return Result.IsSuccess(response);
+                    return Result.Success(response);
                 }
                 else
                 {
@@ -133,14 +133,14 @@ namespace ProjectManagementApplication.Services
                         roles.ToList(),
                         refreshToken.Token
                         );
-                    return Result.IsSuccess(response);
+                    return Result.Success(response);
                 }
             }
 
             public async Task<Result> SignUp(RegisterReq req, CancellationToken ct)
             {
                 AppUser? appUser = await userManager.FindByEmailAsync(req.email);
-                if (appUser is not null) return Result.IsFail<LoginRes>(AuthError.AlreadyExist);
+                if (appUser is not null) return Result.Fail<LoginRes>(AuthError.AlreadyExist);
                 appUser = new AppUser();
                 appUser.Email = req.email;
                 appUser.Name = req.name;
@@ -166,9 +166,9 @@ namespace ProjectManagementApplication.Services
                     //send email verfication
                     await sendEmailVerfication(new EmailVerifyReq(req.email, mailOptions.Value.Email, appUser.Id, code), ct);
 
-                    return Result.IsSuccess();
+                    return Result.Success();
                 }
-                return Result.IsFail<LoginRes>(AuthError.BadRequest);
+                return Result.Fail<LoginRes>(AuthError.BadRequest);
             }
               async Task<Result> sendEmailVerfication(EmailVerifyReq req, CancellationToken ct)
             {
@@ -192,17 +192,17 @@ namespace ProjectManagementApplication.Services
                 await smtpClient.AuthenticateAsync(mailOptions.Value.Email, mailOptions.Value.Password, ct);
                 await smtpClient.SendAsync(mimeMessage, ct);
                 smtpClient.Disconnect(true, ct);
-                return Result.IsSuccess();
+                return Result.Success();
             }
 
         public async Task<Result> AssignRoleAsync(UserRoleReq req,CancellationToken ct)
         {
             AppUser? appUser = await userManager.FindByEmailAsync(req.email);
-            if (appUser is null) return Result.IsFail(AuthError.NotFound);
+            if (appUser is null) return Result.Fail(AuthError.NotFound);
             IdentityResult result =await userManager.AddToRoleAsync(  appUser,req.role);
             return result.Succeeded ?
-                Result.IsSuccess() :
-                Result.IsFail(AuthError.BadRequest);
+                Result.Success() :
+                Result.Fail(AuthError.BadRequest);
         }
 
         public async Task<Result<RoleRes>>AddRole(string role,CancellationToken ct)
@@ -216,10 +216,10 @@ namespace ProjectManagementApplication.Services
             };
             IdentityResult result = await roleManager.CreateAsync(appRole);
             if(! result.Succeeded)
-                Result.IsFail<RoleRes>(AuthError.BadRequest);
+                Result.Fail<RoleRes>(AuthError.BadRequest);
             RoleRes res = new RoleRes(role, role.ToUpper(), true, true);
 
-           return Result.IsSuccess(res);
+           return Result.Success(res);
         }
 
              

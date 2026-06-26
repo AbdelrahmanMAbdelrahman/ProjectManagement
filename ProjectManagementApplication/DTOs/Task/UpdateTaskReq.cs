@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementApplication.DTOs.Task
 {
-    public record UpdateTaskReq(Guid taskId,int status);
+    public record UpdateTaskReq(Guid taskId,string status);
     
 }
