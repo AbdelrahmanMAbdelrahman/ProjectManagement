@@ -1,12 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ProjectManagementDomain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
- 
-
+﻿
 namespace ProjectManagmentInfrasturcture.Configuration
 {
     public class TaskConfiguration : IEntityTypeConfiguration<ProjectManagementDomain.Models.Task>
@@ -18,7 +10,8 @@ namespace ProjectManagmentInfrasturcture.Configuration
             builder.HasIndex(t=>t.Title)
                 .IsUnique();
             builder.Property(t=>t.Description).HasMaxLength(1000);
-            builder.Property(t => t.Status).IsRequired();
+            builder.Property(t => t.Status).IsRequired()
+                .HasMaxLength(50);
             builder.Property(t=>t.DueDate).IsRequired();
             builder.Property(t=>t.Priority).IsRequired();
             builder.HasOne(t=>t.Project)

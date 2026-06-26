@@ -1,9 +1,4 @@
-﻿
-
-using FluentValidation;
-using ProjectManagementApplication.DTOs.Auth;
-
-namespace ProjectManagementApplication.Validation.Auth
+﻿namespace ProjectManagementApplication.Validation.Auth
 {
     public class UserRoleValidator:AbstractValidator<UserRoleReq>
     {

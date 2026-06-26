@@ -1,7 +1,4 @@
 ﻿
-using Mapster;
-using ProjectManagementApplication.DTOs.Task;
-
 namespace ProjectManagementApplication.Mapping
 {
     public class TaskMap : IRegister

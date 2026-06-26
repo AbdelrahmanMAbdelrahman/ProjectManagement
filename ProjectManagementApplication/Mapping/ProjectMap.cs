@@ -1,8 +1,4 @@
 ﻿
-using Mapster;
-using ProjectManagementApplication.DTOs.Project;
-using ProjectManagementDomain.Models;
-
 namespace ProjectManagementApplication.Mapping
 {
     public class ProjectMap : IRegister

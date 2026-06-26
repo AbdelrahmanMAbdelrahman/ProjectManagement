@@ -1,9 +1,4 @@
-﻿
-
-using FluentValidation;
-using ProjectManagementApplication.DTOs.Project;
-
-namespace ProjectManagementApplication.Validation
+﻿namespace ProjectManagementApplication.Validation
 {
     public class ProjectValidator:AbstractValidator<ProjectReq>
     {

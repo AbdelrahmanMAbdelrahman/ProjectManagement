@@ -1,22 +1,4 @@
-﻿
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Mapster;
-using MapsterMapper;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using ProjectManagementApplication.Common.Exceptions;
-using ProjectManagementApplication.Mapping;
-using ProjectManagementApplication.Services;
-using ProjectManagementApplication.Validation;
-using ProjectManagementDomain.Models.Auth;
-using ProjectManagementDomain.Models.Options;
-using ProjectManagmentInfrasturcture;
-using System.Text;
-
-namespace ProjectManagement.Settings
+﻿namespace ProjectManagement.Settings
 {
     public static class AppSettings
     {

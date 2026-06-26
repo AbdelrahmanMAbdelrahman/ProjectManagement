@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using ProjectManagementDomain.Models.Auth;
-using ProjectManagementDomain.Models;
-using System.Reflection;
-namespace ProjectManagmentInfrasturcture
+﻿namespace ProjectManagmentInfrasturcture
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options) :
         IdentityDbContext<AppUser,AppRole,string>(options)

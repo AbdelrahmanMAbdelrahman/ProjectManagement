@@ -8,6 +8,11 @@
     ".NETCoreApp,Version=v9.0": {
       "ProjectManagement/1.0.0": {
         "dependencies": {
+          "FluentValidation": "12.1.1",
+          "FluentValidation.AspNetCore": "11.3.1",
+          "FluentValidation.DependencyInjectionExtensions": "12.1.1",
+          "Mapster": "10.0.9",
+          "Mapster.DependencyInjection": "10.0.9",
           "Microsoft.EntityFrameworkCore.Design": "9.0.0",
           "ProjectManagementApplication": "1.0.0",
           "ProjectManagmentInfrasturcture": "1.0.0",
@@ -52,6 +57,37 @@
           }
         }
       },
+      "FluentValidation/12.1.1": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.1.1.0"
+          }
+        }
+      },
+      "FluentValidation.AspNetCore/11.3.1": {
+        "dependencies": {
+          "FluentValidation": "12.1.1",
+          "FluentValidation.DependencyInjectionExtensions": "12.1.1"
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.AspNetCore.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.3.1.0"
+          }
+        }
+      },
+      "FluentValidation.DependencyInjectionExtensions/12.1.1": {
+        "dependencies": {
+          "FluentValidation": "12.1.1"
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.1.1.0"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -68,6 +104,36 @@
           "lib/net8.0/MailKit.dll": {
             "assemblyVersion": "4.17.0.0",
             "fileVersion": "4.17.0.0"
+          }
+        }
+      },
+      "Mapster/10.0.9": {
+        "dependencies": {
+          "Mapster.Core": "10.0.9"
+        },
+        "runtime": {
+          "lib/net9.0/Mapster.dll": {
+            "assemblyVersion": "10.0.9.0",
+            "fileVersion": "10.0.9.0"
+          }
+        }
+      },
+      "Mapster.Core/10.0.9": {
+        "runtime": {
+          "lib/netstandard2.0/Mapster.Core.dll": {
+            "assemblyVersion": "10.0.9.0",
+            "fileVersion": "10.0.9.0"
+          }
+        }
+      },
+      "Mapster.DependencyInjection/10.0.9": {
+        "dependencies": {
+          "Mapster": "10.0.9"
+        },
+        "runtime": {
+          "lib/net9.0/Mapster.DependencyInjection.dll": {
+            "assemblyVersion": "10.0.9.0",
+            "fileVersion": "10.0.9.0"
           }
         }
       },
@@ -891,9 +957,12 @@
       },
       "ProjectManagementApplication/1.0.0": {
         "dependencies": {
+          "FluentValidation": "12.1.1",
           "MailKit": "4.17.0",
+          "Mapster": "10.0.9",
           "MimeKit": "4.17.0",
           "ProjectManagementDomain": "1.0.0",
+          "ProjectManagmentInfrasturcture": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "8.19.1"
         },
         "runtime": {
@@ -960,6 +1029,27 @@
       "path": "bouncycastle.cryptography/2.6.2",
       "hashPath": "bouncycastle.cryptography.2.6.2.nupkg.sha512"
     },
+    "FluentValidation/12.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EPpkIe1yh1a0OXyC100oOA8WMbZvqUu5plwhvYcb7oSELfyUZzfxV48BLhvs3kKo4NwG7MGLNgy1RJiYtT8Dpw==",
+      "path": "fluentvalidation/12.1.1",
+      "hashPath": "fluentvalidation.12.1.1.nupkg.sha512"
+    },
+    "FluentValidation.AspNetCore/11.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FjkfrGGwC+25oH8QpX1ti3gxkFjDDtotkAQWyQz2CkwQwEfRKTANjhh77I79kY8dov2ydK1SY+e4jiOWsbbDdQ==",
+      "path": "fluentvalidation.aspnetcore/11.3.1",
+      "hashPath": "fluentvalidation.aspnetcore.11.3.1.nupkg.sha512"
+    },
+    "FluentValidation.DependencyInjectionExtensions/12.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D0VXh4dtjjX2aQizuaa0g6R8X3U1JaVqJPfGCvLwZX9t/O2h7tkpbitbadQMfwcgSPdDbI2vDxuwRMv/Uf9dHA==",
+      "path": "fluentvalidation.dependencyinjectionextensions/12.1.1",
+      "hashPath": "fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512"
+    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
@@ -973,6 +1063,27 @@
       "sha512": "sha512-1nUAVLxM9fhT/78we6/AGsCesnpn5dRNLLeRqOfr52Wnk87pzVwo5YMTMyqnmoXrYc7piGhmayiMA/OgDluIjg==",
       "path": "mailkit/4.17.0",
       "hashPath": "mailkit.4.17.0.nupkg.sha512"
+    },
+    "Mapster/10.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UQW0Fquj9czyZHtHq08OaceEvgXhNOY8n5Ezc8BALU6//MFLmM2xPW3mCNzcvrqpMNwvMhEy7MHlRSkkbfpMeQ==",
+      "path": "mapster/10.0.9",
+      "hashPath": "mapster.10.0.9.nupkg.sha512"
+    },
+    "Mapster.Core/10.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v6/hzOlSyCzlwize5PbRtiBCuWDjUEeH3S2pYXa+B7gD+HPn+6kTavCfjwA7olhOq78ufMw5bGOXhwCcJOZ+sQ==",
+      "path": "mapster.core/10.0.9",
+      "hashPath": "mapster.core.10.0.9.nupkg.sha512"
+    },
+    "Mapster.DependencyInjection/10.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dvcqQ3lJoNtSXjQzATYzXQd31bSuE9/g8cdWM6vtOj9Q5Q8ux/N2JZnmL8/5hF3valZg6daFK1SCnzCbJN14Qw==",
+      "path": "mapster.dependencyinjection/10.0.9",
+      "hashPath": "mapster.dependencyinjection.10.0.9.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/9.0.0": {
       "type": "package",

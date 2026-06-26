@@ -1,8 +1,4 @@
 ﻿
-
-using FluentValidation;
-using ProjectManagementApplication.DTOs.Task;
-
 namespace ProjectManagementApplication.Validation
 {
     public class TaskValidation:AbstractValidator<TaskReq>

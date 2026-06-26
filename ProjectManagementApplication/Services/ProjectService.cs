@@ -1,18 +1,4 @@
-﻿using Mapster;
-using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Ocsp;
-using ProjectManagementApplication.Common.Results;
-using ProjectManagementApplication.DTOs.Project;
-using ProjectManagementApplication.Errors.ProjectErrors;
-using ProjectManagementApplication.Interfaces;
-using ProjectManagementDomain.Models;
-using ProjectManagmentInfrasturcture;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ProjectManagementApplication.Services
 {
     public class ProjectService (AppDbContext database): IProject

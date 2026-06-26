@@ -1,8 +1,4 @@
-﻿using ProjectManagementApplication.Common.Results;
-using ProjectManagementApplication.DTOs.Auth;
- 
-
-namespace ProjectManagementApplication.Interfaces
+﻿namespace ProjectManagementApplication.Interfaces
 {
     public interface IAuth
     {

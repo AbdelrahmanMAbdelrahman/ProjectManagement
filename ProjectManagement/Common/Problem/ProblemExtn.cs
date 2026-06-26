@@ -1,7 +1,4 @@
-﻿
- 
-
-namespace ProjectManagement.Common.Problem
+﻿namespace ProjectManagement.Common.Problem
 {
     public static class ProblemExtn
     {

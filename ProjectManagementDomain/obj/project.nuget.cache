@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sO5Y3HnwM+8=",
+  "dgSpecHash": "bLJUs8EYsqk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj",
+  "projectFilePath": "D:\\ElectroPI\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abdel\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\9.0.0\\microsoft.aspnetcore.cryptography.internal.9.0.0.nupkg.sha512",
     "C:\\Users\\abdel\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\9.0.0\\microsoft.aspnetcore.cryptography.keyderivation.9.0.0.nupkg.sha512",

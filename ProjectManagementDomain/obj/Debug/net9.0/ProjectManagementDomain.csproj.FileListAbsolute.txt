@@ -10,3 +10,16 @@ C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\
 C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\refint\ProjectManagementDomain.dll
 C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.pdb
 C:\Users\abdel\source\repos\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ref\ProjectManagementDomain.dll
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\bin\Debug\net9.0\ProjectManagementDomain.deps.json
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\bin\Debug\net9.0\ProjectManagementDomain.dll
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\bin\Debug\net9.0\ProjectManagementDomain.pdb
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.csproj.AssemblyReference.cache
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.GeneratedMSBuildEditorConfig.editorconfig
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.AssemblyInfoInputs.cache
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.AssemblyInfo.cs
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.csproj.CoreCompileInputs.cache
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.sourcelink.json
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.dll
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\refint\ProjectManagementDomain.dll
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ProjectManagementDomain.pdb
+D:\ElectroPI\ProjectManagement\ProjectManagementDomain\obj\Debug\net9.0\ref\ProjectManagementDomain.dll

@@ -1,12 +1,4 @@
-﻿using ProjectManagementApplication.Common.Results;
-using ProjectManagementApplication.DTOs.Project;
-using ProjectManagementDomain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ProjectManagementApplication.Interfaces
 {
     public interface IProject

@@ -1,16 +1,12 @@
 ﻿
 
-
-
-using ProjectManagementApplication.DTOs.Task;
-using ProjectManagementApplication.Services;
-
 namespace TaskManagement.Controllers
 {
     [ApiController]
     [Route("Api/[Controller]")]
     public class TaskController (ITask taskService): ControllerBase
     {
+        [Authorize(Roles = "Admin")]
         [HttpPost("")]
         public async Task<IActionResult> CreateTask([FromBody] TaskReq req, CancellationToken ct)
         {
@@ -19,6 +15,7 @@ namespace TaskManagement.Controllers
                 CreatedAtAction(nameof(GetTaskByProjectId), new { projectId = result.Value.projectId }, result.Value) :
                 result.Problem();
         }
+       
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetTaskByProjectId(Guid projectId, CancellationToken ct)
         {
@@ -27,7 +24,7 @@ namespace TaskManagement.Controllers
                 Ok(result.Value) :
                 result.Problem();
         }
-        
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> AmendTask(Guid id, [FromBody] UpdateTaskReq req, CancellationToken ct)
         {
@@ -36,6 +33,7 @@ namespace TaskManagement.Controllers
                 NoContent() :
                 result.Problem();
         }
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteProject(Guid id, CancellationToken ct)
         {

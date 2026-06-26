@@ -5,6 +5,7 @@ namespace ProjectManagement.Controllers
     [Route("api/[Controller]")]
     public class ProjectController(IProject projectService) :ControllerBase
     {
+        [Authorize(Roles ="Admin")]
         [HttpPost("")]
         public async Task<IActionResult> CreateProject([FromBody] ProjectReq req,CancellationToken ct)
         {
@@ -13,6 +14,7 @@ namespace ProjectManagement.Controllers
                 CreatedAtAction(nameof(GetProjectById),new{id=result.Value.id},result.Value):
                 result.Problem();
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetProjectById(Guid id,CancellationToken ct)
         {
@@ -29,6 +31,7 @@ namespace ProjectManagement.Controllers
                 Ok(result.Value) :
                 result.Problem();
         }
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> AmendProject(Guid id, [FromBody] ProjectReq req,CancellationToken ct)
         {
@@ -37,6 +40,7 @@ namespace ProjectManagement.Controllers
                 NoContent() :
                 result.Problem();
         }
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteProject(Guid id, CancellationToken ct) { 
         Result result =await projectService.DeleteProjectAsync(id, ct);

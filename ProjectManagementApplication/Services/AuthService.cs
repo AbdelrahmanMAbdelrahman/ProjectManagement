@@ -20,7 +20,6 @@ using System.Net.Mail;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 namespace ProjectManagementApplication.Services
 {
     public class AuthService(UserManager<AppUser> userManager,

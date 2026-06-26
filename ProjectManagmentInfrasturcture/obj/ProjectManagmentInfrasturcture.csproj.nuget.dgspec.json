@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagmentInfrasturcture\\ProjectManagmentInfrasturcture.csproj": {}
+    "D:\\ElectroPI\\ProjectManagement\\ProjectManagmentInfrasturcture\\ProjectManagmentInfrasturcture.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj": {
+    "D:\\ElectroPI\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj",
+        "projectUniqueName": "D:\\ElectroPI\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj",
         "projectName": "ProjectManagementDomain",
-        "projectPath": "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj",
+        "projectPath": "D:\\ElectroPI\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj",
         "packagesPath": "C:\\Users\\abdel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagementDomain\\obj\\",
+        "outputPath": "D:\\ElectroPI\\ProjectManagement\\ProjectManagementDomain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -89,14 +89,14 @@
         }
       }
     },
-    "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagmentInfrasturcture\\ProjectManagmentInfrasturcture.csproj": {
+    "D:\\ElectroPI\\ProjectManagement\\ProjectManagmentInfrasturcture\\ProjectManagmentInfrasturcture.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagmentInfrasturcture\\ProjectManagmentInfrasturcture.csproj",
+        "projectUniqueName": "D:\\ElectroPI\\ProjectManagement\\ProjectManagmentInfrasturcture\\ProjectManagmentInfrasturcture.csproj",
         "projectName": "ProjectManagmentInfrasturcture",
-        "projectPath": "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagmentInfrasturcture\\ProjectManagmentInfrasturcture.csproj",
+        "projectPath": "D:\\ElectroPI\\ProjectManagement\\ProjectManagmentInfrasturcture\\ProjectManagmentInfrasturcture.csproj",
         "packagesPath": "C:\\Users\\abdel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagmentInfrasturcture\\obj\\",
+        "outputPath": "D:\\ElectroPI\\ProjectManagement\\ProjectManagmentInfrasturcture\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -117,8 +117,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj": {
-                "projectPath": "C:\\Users\\abdel\\source\\repos\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj"
+              "D:\\ElectroPI\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj": {
+                "projectPath": "D:\\ElectroPI\\ProjectManagement\\ProjectManagementDomain\\ProjectManagementDomain.csproj"
               }
             }
           }

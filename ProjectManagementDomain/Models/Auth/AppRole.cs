@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-
+﻿
 namespace ProjectManagementDomain.Models.Auth
 {
     public class AppRole : IdentityRole
