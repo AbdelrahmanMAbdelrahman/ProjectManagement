@@ -69,9 +69,9 @@ namespace ProjectManagementApplication.Services
                     IList<Claim> roleClaim = await roleManager.GetClaimsAsync(role!);
                     Claims.AddRange(roleClaim);
                 }
-                //IEnumerable<Claim> UserRoles = Roles.Select(r => new Claim(ClaimTypes.Role, r));
+                IEnumerable<Claim> UserRoles = Roles.Select(r => new Claim(ClaimTypes.Role, r));
                 Claims.AddRange(UserClaims);
-                //Claims.AddRange(UserRoles);
+                Claims.AddRange(UserRoles);
                 SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Options.Value.Key));
                 SigningCredentials signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                 var token = new JwtSecurityToken(
@@ -183,7 +183,7 @@ namespace ProjectManagementApplication.Services
                 var content = streamReader.ReadToEnd();
                 streamReader.Close();
 
-            content = content.Replace("{{confirmUrl}}",$"https://localhost:7279/api/Auth/Confirm?id={req.id}&code={req.code}");
+            content = content.Replace("{{confirmUrl}}",$"https://localhost:7279/api/v1/Auth/Confirm?id={req.id}&code={req.code}");
             var bodyBuilder = new BodyBuilder { HtmlBody = content };
                 mimeMessage.Body = bodyBuilder.ToMessageBody();
                 using MailKit.Net.Smtp.SmtpClient smtpClient = new MailKit.Net.Smtp.SmtpClient();

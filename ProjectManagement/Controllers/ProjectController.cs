@@ -1,8 +1,12 @@
-﻿/// <summary>
+﻿using Asp.Versioning;
+
+/// <summary>
 /// Provides endpoints for managing projects.
 /// </summary>
+[ApiVersion(1)]
+[ApiVersion(2)]
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v{v:apiVersion}/[controller]")]
 public class ProjectController(IProject projectService) : ControllerBase
 {
     /// <summary>
