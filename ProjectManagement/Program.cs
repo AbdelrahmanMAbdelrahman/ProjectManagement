@@ -15,6 +15,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(); 
 }
+app.UseExceptionHandler();
 app.UseCors();
 app.UseHttpsRedirection();
 

@@ -7,6 +7,6 @@ namespace ProjectManagementDomain.Models
         public string Name { get; set; } = default!;
         public string Description { get; set; } = default!;
         public DateTime CreatedAt { get; set; }
-        public DbSet<Task> Tasks { get; set; } = default!;   
+        public ICollection<Task> Tasks { get; set; } = default!;   
     }
 }

@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementApplication.DTOs.Task
 {
-    public  record TaskRes(Guid id  ,string title,string description,byte status ,DateTime dueDate ,int priority ,Guid projectId );
+    public  record TaskRes(Guid id  ,string title,string description,string status ,DateTime dueDate ,int priority ,Guid projectId );
      
 }

@@ -16,7 +16,7 @@ namespace TaskManagement.Controllers
                 result.Problem();
         }
        
-        [HttpGet("{id:guid}")]
+        [HttpGet("{projectId:guid}")]
         public async Task<IActionResult> GetTaskByProjectId(Guid projectId, CancellationToken ct)
         {
             Result<List<TaskRes>> result = await taskService.GetTasksByProjectAsync(projectId, ct);
@@ -26,9 +26,9 @@ namespace TaskManagement.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> AmendTask(Guid id, [FromBody] UpdateTaskReq req, CancellationToken ct)
+        public async Task<IActionResult> UpdateTask(Guid id, [FromBody]string newStatus, CancellationToken ct)
         {
-            Result result = await taskService.UpdateTaskStatusAsync( req, ct);
+            Result result = await taskService.UpdateTaskStatusAsync( id,newStatus, ct);
             return result.IsSuccess ?
                 NoContent() :
                 result.Problem();
