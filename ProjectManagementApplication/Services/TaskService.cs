@@ -31,12 +31,12 @@ namespace ProjectManagementApplication.Services
             List<TaskRes> res = Tasks.Adapt<List<TaskRes>>();
             return Result.Success(res);
         }
-        public async Task<Result> UpdateTaskStatusAsync(UpdateTaskReq req, CancellationToken ct)
+        public async Task<Result> UpdateTaskStatusAsync(Guid id,string newStatus, CancellationToken ct)
  
         {
-            ProjectManagementDomain.Models.Task? task = await database.Tasks.FindAsync(req.taskId);
+            ProjectManagementDomain.Models.Task? task = await database.Tasks.FindAsync(id);
             if (task is null) return Result.Fail(TaskError.Notfound);
-            task.Status = req.status;
+            task.Status = newStatus;
             if (!await Commit()) return Result.Fail(TaskError.InternalServerError);
             return Result.Success();
         }
