@@ -16,17 +16,18 @@ namespace ProjectManagementApplication.Services
             throw new NotImplementedException();
         }
 
-        public Task<Result> DeleteTaskAsync(int Id, CancellationToken ct)
+        public Task<Result> DeleteTaskAsync(Guid Id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Result<TaskRes>> GetTasksByProjectAsync(int Id, CancellationToken ct)
+
+        public Task<Result<TaskRes>> GetTasksByProjectAsync(Guid Id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Result> UpdateTaskStatusAsync(int ID, TaskReq req, CancellationToken ct)
+        public Task<Result> UpdateTaskStatusAsync(UpdateTaskReq req, CancellationToken ct)
         {
             throw new NotImplementedException();
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectManagementApplication.Interfaces
+namespace ProjectManagementApplication.DTOs.Auth
 {
     public record RegisterReq(
           string name, string email, string userName

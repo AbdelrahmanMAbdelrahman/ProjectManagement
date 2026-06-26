@@ -1,11 +1,6 @@
 ﻿using ProjectManagementApplication.Common.Results;
 using ProjectManagementApplication.DTOs.Auth;
-using ProjectManagementDomain.Models.Auth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+ 
 
 namespace ProjectManagementApplication.Interfaces
 {
