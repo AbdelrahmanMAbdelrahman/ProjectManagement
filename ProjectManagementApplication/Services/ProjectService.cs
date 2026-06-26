@@ -5,7 +5,7 @@ namespace ProjectManagementApplication.Services
     {
         public async Task<Result<ProjectRes>> CreateProjectAsync(ProjectReq req, CancellationToken ct)
         {
-            Project? project = await database.Projects.FirstOrDefaultAsync(p => p.Name == req.name);
+            Project? project = await database.Projects.AsNoTracking().FirstOrDefaultAsync(p => p.Name == req.name);
             if (project is not null) return Result.Fail<ProjectRes>(ProjectError.AlreadyExist);
             project = req.Adapt<Project>();
             await database.Projects.AddAsync(project, cancellationToken: ct);
@@ -18,7 +18,7 @@ namespace ProjectManagementApplication.Services
         public async Task<Result<List<ProjectRes>>> GetAllProjectsAsync(CancellationToken ct)
 
         {
-            List<Project> projects = await database.Projects.ToListAsync();
+            List<Project> projects = await database.Projects.AsNoTracking().ToListAsync();
             if (projects.Count == 0) return Result.Fail<List<ProjectRes>>(ProjectError.Notfound);
             List<ProjectRes> res = projects.Adapt<List<ProjectRes>>();
             return Result.Success(res);

@@ -1,4 +1,6 @@
-﻿namespace ProjectManagement.Settings
+﻿using Asp.Versioning;
+
+namespace ProjectManagement.Settings
 {
     public static class AppSettings
     {
@@ -12,6 +14,20 @@
             service.PrepareValidation();
             service.PrepareCors();
             service.PrepareAuth(config);
+            service.PrepareVersioning();
+            return service;
+        }
+        public static IServiceCollection PrepareVersioning(
+            this IServiceCollection service)
+        {
+            service.AddApiVersioning(
+                options=>options.ApiVersionReader=new UrlSegmentApiVersionReader())
+                .AddApiExplorer(
+                options=> { options.GroupNameFormat = "'v'V"; 
+                            options.SubstituteApiVersionInUrl = true; 
+                          }
+
+                );
             return service;
         }
         public static IServiceCollection PrepareDatabaseConnection(

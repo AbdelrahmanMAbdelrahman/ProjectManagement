@@ -7,6 +7,7 @@ namespace ProjectManagementApplication.Interfaces
         Task<Result<TaskRes>> CreateTaskAsync(TaskReq req, CancellationToken ct);
         Task<Result> UpdateTaskStatusAsync( Guid id,string newStatus, CancellationToken ct);
         Task<Result<List<TaskRes>>> GetTasksByProjectAsync(Guid projectId, CancellationToken ct);
+        Task<Result<List<TaskResV2>>> GetTasksByProjectAsyncV2(Guid projectId, CancellationToken ct);
         Task<Result> DeleteTaskAsync(Guid Id, CancellationToken ct);
         
     }

@@ -1,9 +1,13 @@
 ﻿
 
+using Asp.Versioning;
+
 namespace TaskManagement.Controllers
 {
+    [ApiVersion(1)]
+    [ApiVersion(2)]
     [ApiController]
-    [Route("Api/[Controller]")]
+    [Route("api/v{v:apiVersion}/[Controller]")]
     public class TaskController (ITask taskService): ControllerBase
     {
         [Authorize(Roles = "Admin")]
@@ -15,11 +19,20 @@ namespace TaskManagement.Controllers
                 CreatedAtAction(nameof(GetTaskByProjectId), new { projectId = result.Value.projectId }, result.Value) :
                 result.Problem();
         }
-       
+        [MapToApiVersion(1)]
         [HttpGet("{projectId:guid}")]
         public async Task<IActionResult> GetTaskByProjectId(Guid projectId, CancellationToken ct)
         {
             Result<List<TaskRes>> result = await taskService.GetTasksByProjectAsync(projectId, ct);
+            return result.IsSuccess ?
+                Ok(result.Value) :
+                result.Problem();
+        }
+        [MapToApiVersion(2)]
+        [HttpGet("{projectId:guid}")]
+        public async Task<IActionResult> GetTaskByProjectIdV2(Guid projectId, CancellationToken ct)
+        {
+            Result<List<TaskResV2>> result = await taskService.GetTasksByProjectAsyncV2(projectId, ct);
             return result.IsSuccess ?
                 Ok(result.Value) :
                 result.Problem();
