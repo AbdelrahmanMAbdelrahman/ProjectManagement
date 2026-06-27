@@ -5,17 +5,18 @@ namespace ProjectManagement.Settings
     public static class AppSettings
     {
         public static IServiceCollection PrepareAppServices(
-            this IServiceCollection service, ConfigurationManager config)
+            this IServiceCollection services, ConfigurationManager config)
         {
-            service.PrepareExceptionHandler();
-            service.PrepareDatabaseConnection(config);
-            service.PrepareDependencyInjection();
-            service.PrepareMapping();
-            service.PrepareValidation();
-            service.PrepareCors();
-            service.PrepareAuth(config);
-            service.PrepareVersioning();
-            return service;
+            
+            services.PrepareDatabaseConnection(config);
+            services.PrepareAuth(config);
+            services.PrepareVersioning();
+            services.PrepareCors();
+            services.PrepareDependencyInjection();
+            services.PrepareMapping();
+            services.PrepareValidation();
+            services.PrepareExceptionHandler();
+            return services;
         }
         public static IServiceCollection PrepareVersioning(
             this IServiceCollection service)
