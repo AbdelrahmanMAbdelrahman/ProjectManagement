@@ -215,7 +215,7 @@ namespace ProjectManagementApplication.Services
             };
             IdentityResult result = await roleManager.CreateAsync(appRole);
             if(! result.Succeeded)
-                Result.Fail<RoleRes>(AuthError.BadRequest);
+               return Result.Fail<RoleRes>(AuthError.BadRequest);
             RoleRes res = new RoleRes(role, role.ToUpper(), true, true);
 
            return Result.Success(res);

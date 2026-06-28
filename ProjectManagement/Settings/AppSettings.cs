@@ -47,7 +47,8 @@ namespace ProjectManagement.Settings
                     policy.AllowAnyHeader()
                     .AllowAnyMethod()
                     .WithOrigins([
-                        "http://127.0.0.1:5500"
+                        "http://127.0.0.1:5500",
+                        "http://localhost:4200"
                         ]);
 
                 });
