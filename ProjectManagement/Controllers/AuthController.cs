@@ -4,10 +4,10 @@
 /// Provides authentication and authorization endpoints such as registration,
 /// login, email confirmation, and role management.
 /// </summary>
-[ApiVersion(1)]
-[ApiVersion(2)]
+
 [ApiController]
-[Route("api/v{v:apiVersion}/[controller]")]
+[Route("api/[controller]")]
+[Produces("application/json")]
 public class AuthController(IAuth authService) : ControllerBase
 {
     /// <summary>
@@ -20,6 +20,8 @@ public class AuthController(IAuth authService) : ControllerBase
     /// </returns>
     /// <response code="200">Registration completed successfully.</response>
     /// <response code="400">Invalid registration data.</response>
+    [ProducesResponseType(typeof(IActionResult),StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(IActionResult),StatusCodes.Status409Conflict)]
     [HttpPost("SignUp")]
     public async Task<IActionResult> SignUp(RegisterReq req, CancellationToken ct)
     {

@@ -3,10 +3,9 @@
 /// <summary>
 /// Provides endpoints for managing projects.
 /// </summary>
-[ApiVersion(1)]
-[ApiVersion(2)]
+
 [ApiController]
-[Route("api/v{v:apiVersion}/[controller]")]
+[Route("api/[controller]")]
 public class ProjectController(IProject projectService) : ControllerBase
 {
     /// <summary>

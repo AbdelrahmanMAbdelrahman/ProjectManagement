@@ -22,12 +22,19 @@ namespace ProjectManagement.Settings
             this IServiceCollection service)
         {
             service.AddApiVersioning(
-                options=>options.ApiVersionReader=new UrlSegmentApiVersionReader())
-                .AddApiExplorer(
-                options=> { options.GroupNameFormat = "'v'V"; 
-                            options.SubstituteApiVersionInUrl = true; 
-                          }
-
+                options =>
+                {
+                    options.DefaultApiVersion = new ApiVersion(1, 0);
+                    options.AssumeDefaultVersionWhenUnspecified= true;
+                    options.ReportApiVersions = true;
+                    options.ApiVersionReader = new HeaderApiVersionReader("api-version");
+                }
+                ).AddApiExplorer(
+               options =>
+               {
+                   options.GroupNameFormat = "'v'VVV";
+                   options.SubstituteApiVersionInUrl = true;
+               } 
                 );
             return service;
         }

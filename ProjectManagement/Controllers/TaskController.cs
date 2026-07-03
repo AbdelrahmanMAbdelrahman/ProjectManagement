@@ -9,7 +9,7 @@ namespace TaskManagement.Controllers
     [ApiVersion(1)]
     [ApiVersion(2)]
     [ApiController]
-    [Route("api/v{v:apiVersion}/[Controller]")]
+    [Route("api/[Controller]")]
     public class TaskController (ITask taskService): ControllerBase
     {
         /// <summary>
