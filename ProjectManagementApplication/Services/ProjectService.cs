@@ -1,4 +1,7 @@
 ﻿
+using ProjectManagementApplication.DTOs.Paginated;
+using ProjectManagementApplication.Pagination;
+
 namespace ProjectManagementApplication.Services
 {
     public class ProjectService (AppDbContext database): IProject
@@ -15,13 +18,14 @@ namespace ProjectManagementApplication.Services
 
         }
 
-        public async Task<Result<List<ProjectRes>>> GetAllProjectsAsync(CancellationToken ct)
+        public async Task<Result<PaginatedList<ProjectRes>>> GetAllProjectsAsync(PaginatedReq req,CancellationToken ct)
 
         {
-            List<Project> projects = await database.Projects.AsNoTracking().ToListAsync();
-            if (projects.Count == 0) return Result.Fail<List<ProjectRes>>(ProjectError.Notfound);
-            List<ProjectRes> res = projects.Adapt<List<ProjectRes>>();
-            return Result.Success(res);
+            IQueryable<ProjectRes> projects =  database.Projects.AsNoTracking().ProjectToType<ProjectRes>();
+            PaginatedList<ProjectRes> paginatedProjects =
+                await PaginatedList<ProjectRes>.Create(projects,req.pageNumber,req.pageSize);
+            if (paginatedProjects.TotalPages == 0) return Result.Fail<PaginatedList<ProjectRes>>(ProjectError.Notfound);
+            return Result.Success(paginatedProjects);
 
         }
 

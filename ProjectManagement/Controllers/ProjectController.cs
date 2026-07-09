@@ -1,4 +1,6 @@
 ﻿using Asp.Versioning;
+using ProjectManagementApplication.DTOs.Paginated;
+using ProjectManagementApplication.Pagination;
 
 /// <summary>
 /// Provides endpoints for managing projects.
@@ -61,9 +63,9 @@ public class ProjectController(IProject projectService) : ControllerBase
     /// <returns>A list of all projects.</returns>
     /// <response code="200">Projects retrieved successfully.</response>
     [HttpGet]
-    public async Task<IActionResult> GetAllProjects(CancellationToken ct)
+    public async Task<IActionResult> GetAllProjects([FromQuery]PaginatedReq req,CancellationToken ct)
     {
-        Result<List<ProjectRes>> result = await projectService.GetAllProjectsAsync(ct);
+        Result<PaginatedList<ProjectRes>> result = await projectService.GetAllProjectsAsync(req,ct);
 
         return result.IsSuccess
             ? Ok(result.Value)
